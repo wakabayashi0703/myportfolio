@@ -843,6 +843,12 @@ body.fixed{
   display: flex;
   align-items: center;
   justify-content:center;
+  pointer-events: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
 }
 
 
@@ -858,6 +864,7 @@ body.fixed{
   padding: 3rem;
   width: 90px;
   font-size: 3rem;
+  pointer-events: none;
 }
 
 .seek_bar{
@@ -866,6 +873,7 @@ body.fixed{
   height: 3px;
   width: 210px;
   background-color: #272727;
+  pointer-events: none;
 
 }
 
@@ -874,7 +882,7 @@ body.fixed{
   height: 3px;
   width: 210px;
   background-color: #fff;
-
+  left: -100%;
 }
 
 
@@ -884,3 +892,79 @@ body.fixed{
   font-size: 3rem;
 
 }
+
+.reset-bar{
+  left:-100%;
+  transition: all 0s 0s;
+}
+
+.start-bar{
+  left:0%;
+  transition: all 3s linear 0s;
+}
+
+.end-bar{
+  left:100%;
+  transition: all 0.7s linear 0s;
+}
+
+/* 基本はこれで移動したい。 */
+/* animation: start_slide 3s; */
+.start-slide{
+  animation: start_slide 3s linear;
+}
+
+@keyframes start_slide{
+  0%{
+    left:-100%;
+  }
+  100%{
+    left:0%;
+  }
+
+}
+
+/* animation:end_slede 0.7s; */
+.end-slide{
+  animation: end_slide 0.7s;
+}
+@keyframes end_slide{
+  0%{
+    left:0%;
+  }
+  100%{
+    left:100%;
+  }
+
+}
+
+
+
+
+
+/* progress */
+
+/* &-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  transition-timing-function: linear !important;
+
+  .m--with-autosliding .m--active-control & {
+    transform: scaleX(1);
+  }
+作り方
+  .m--prev-control & {
+    transform: translateX(100%);
+    transition: transform 0.5s !important;
+  }
+
+  .m--reset-progress & {
+    transform: scaleX(0);
+    transition: transform 0s 0s !important;
+  } */
